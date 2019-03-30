@@ -1,0 +1,31 @@
+*{list-style:none;margin:0;padding:0;}
+ul,li{list-style:none;}
+.custom-table{width:800px;border:2px solid #666;box-sizing:normal;
+  td,
+  th{border:1px solid #ddd;padding:10px;width:80px;position:relative;transition:.3s;}
+  th[colspan],
+  td[colspan]{background:#fafafa;}
+  td:not([colspan]){cursor:pointer;}
+  td{
+    &.solved{background:#afa;}
+    &.solved .answer{display:block;}
+    &.active{background:#ffa;}
+    .up{font-size:11px;position:absolute;left:0;top:0;}
+    .up{font-size:11px;position:absolute;left:0;top:0;}
+  }
+  .answer{display:none;}
+}
+.matching-list{width:800px;
+  &:after{content:"";display:block;clear:both;list-style:none;}
+  li{float:left;width:calc(200px - 2px);list-style:none;margin:1px;border:1px solid #ddd;border-radius:3px;cursor:pointer;
+    &.active{background:#ffa;}
+    &.solved{background:#afa;}
+  }
+}
+.msg-block{width:800px;}
+.input-group{margin:5px 0;}
+
+.full-wrap{position:fixed;left:0;right:0;top:0;bottom:0;text-align:center;overflow:auto}
+span.middle{display:inline-block;vertical-align:middle;width:0;height:100%;
+  +*{display:inline-block;vertical-align:middle;}
+}
