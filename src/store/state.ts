@@ -14,7 +14,8 @@ export interface IState {
   solved: TSolved[]
   listSolved: TSolved[]
   listSelected: TIndex,
-  fieldState: IFieldState | null
+  fieldState: IFieldState | null,
+  showAnswer: boolean
 }
 
 /* initialize Value */
@@ -42,6 +43,7 @@ const state: IState = {
   listSolved,
   listSelected: null,
   fieldState: null,
+  showAnswer: false,
 }
 export const initState: IState = {
   ...state,
@@ -50,6 +52,7 @@ export const initState: IState = {
   selected: null,
   listSelected: null,
   fieldState: null,
+  showAnswer: false,
 }
 
 export default state

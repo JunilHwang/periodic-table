@@ -66,6 +66,9 @@ const mutations: MutationTree<IState> = {
   setType (state: IState, qaType: number) {
     Object.assign(state, {...initState, qaType})
   },
+  showAnswerToggle (state: IState) {
+    state.showAnswer = !state.showAnswer
+  },
 }
 
 export default mutations

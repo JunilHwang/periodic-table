@@ -3,9 +3,9 @@
     <div class="full-wrap">
       <span class="middle"></span><div>
         <Quesition />
+        <b-alert variant="info" v-if="$store.state.msg" v-html="$store.state.msg" show />
         <MatchingQa v-if="$store.state.qaType === 1" />
         <InputQa v-else-if="$store.state.qaType === 2" />
-        <b-alert variant="danger" v-if="$store.state.msg" v-html="$store.state.msg" show />
       </div>
     </div>
   </div>

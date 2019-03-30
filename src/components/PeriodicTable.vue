@@ -1,25 +1,15 @@
 <template>
-  <table class="custom-table mb-4">
+  <table class="custom-table mb-3">
     <colgroup>
-      <col width="10%" />
-      <col />
-      <col />
-      <col />
-      <col />
-      <col />
-      <col />
-      <col />
-      <col />
+      <col v-for="n in 8" :key="n" :width="`${100 / 8}%`" />
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">번호</th>
-        <th scope="col" colspan="8"></th>
+        <th v-for="v in ['Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ', 'Ⅵ', 'Ⅶ', 'Ⅷ']" :key="v" v-html="v" />
       </tr>
     </thead>
-    <tbody ref="tbody">
+    <tbody ref="tbody" :class="{'show-answer': showAnswer}">
       <tr>
-        <td scope="row">1</td>
         <td :class="{active: selected === 0, solved: solved[0]}" :num="0" :answer="answer[0]">
           <span class="up">1</span>
             <span class="answer" v-html="answer[0].replace('/', enter)" />
@@ -31,7 +21,6 @@
           </td>
       </tr>
       <tr>
-        <td scope="row">2</td>
         <td :class="{active: selected === 2, solved: solved[2]}" :num="2" :answer="answer[2]">
           <span class="up">3</span>
             <span class="answer" v-html="answer[2].replace('/', enter)" />
@@ -66,7 +55,6 @@
           </td>
       </tr>
       <tr>
-        <td scope="row">3</td>
         <td :class="{active: selected === 10, solved: solved[10]}" :num="10" :answer="answer[10]">
           <span class="up">11</span>
           <span class="answer" v-html="answer[10].replace('/', enter)" />
@@ -101,7 +89,6 @@
         </td>
       </tr>
       <tr>
-        <td scope="row">4</td>
         <td :class="{active: selected === 18, solved: solved[18]}" :num="18" :answer="answer[18]">
           <span class="up">19</span>
           <span class="answer" v-html="answer[18].replace('/', enter)" />
@@ -136,7 +123,6 @@
         </td>
       </tr>
       <tr>
-        <td scope="row">5</td>
         <td :class="{active: selected === 26, solved: solved[26]}" :num="26" :answer="answer[26]">
           <span class="up">37</span>
           <span class="answer" v-html="answer[26].replace('/', enter)" />
@@ -171,7 +157,6 @@
         </td>
       </tr>
       <tr>
-        <td scope="row">6</td>
         <td :class="{active: selected === 34, solved: solved[34]}" :num="34" :answer="answer[34]">
           <span class="up">55</span>
           <span class="answer" v-html="answer[34].replace('/', enter)" />
@@ -206,7 +191,6 @@
         </td>
       </tr>
       <tr>
-        <td scope="row">7</td>
         <td :class="{active: selected === 42, solved: solved[42]}" :num="42" :answer="answer[42]">
           <span class="up">87</span>
           <span class="answer" v-html="answer[42].replace('/', enter)" />
@@ -234,6 +218,7 @@ export default Vue.extend({
     solved (): TSolved[] { return this.$store.state.solved },
     selected (): TIndex { return this.$store.state.selected },
     answer (): string[] { return this.$store.state.answer },
+    showAnswer (): boolean { return this.$store.state.showAnswer },
   },
   mounted () {
     this.$on('select', this.select)
