@@ -2,10 +2,10 @@
   <div id="app">
     <div class="full-wrap">
       <span class="middle"></span><div>
-        <Quesition v-if="$store.state.qaType === null" />
-        <MatchingQa v-else-if="$store.state.qaType === 0" />
-        <InputQa v-else-if="$store.state.qaType === 1" />
-        <div class="msg-block alert alert-danger" v-if="$store.state.msg" v-html="eventBus.msg" role="alert" />
+        <Quesition />
+        <MatchingQa v-if="$store.state.qaType === 1" />
+        <InputQa v-else-if="$store.state.qaType === 2" />
+        <b-alert variant="danger" v-if="$store.state.msg" v-html="$store.state.msg" show />
       </div>
     </div>
   </div>

@@ -1,14 +1,20 @@
 /* Type Definition */
-type TSolved = null|boolean
-interface IState {
+export type TSolved = null|boolean
+export type TIndex = number|null
+interface IFieldState {
+  num: number
+  answer: string
+}
+export interface IState {
   answer: string[],
-  qaType: number|null
+  qaType: TIndex
   msg: string|null
   randed: string[]
-  selected: number|null
+  selected: TIndex
   solved: TSolved[]
   listSolved: TSolved[]
-  listSelected: number|null
+  listSelected: TIndex,
+  fieldState: IFieldState | null
 }
 
 /* initialize Value */
@@ -25,7 +31,7 @@ const randed: string[] = (() => {
   return temp
 })();
 const solved: TSolved[] = answer.map(() => null)
-const listSolved: TSolved[] = solved
+const listSolved: TSolved[] = solved.slice()
 
 const state: IState = {
   answer,
@@ -36,6 +42,7 @@ const state: IState = {
   solved,
   listSolved,
   listSelected: null,
+  fieldState: null,
 }
 
 export default state
