@@ -32,7 +32,6 @@ const randed: string[] = (() => {
 })();
 const solved: TSolved[] = answer.map(() => null)
 const listSolved: TSolved[] = solved.slice()
-
 const state: IState = {
   answer,
   qaType: null,
@@ -41,6 +40,14 @@ const state: IState = {
   selected: null,
   solved,
   listSolved,
+  listSelected: null,
+  fieldState: null,
+}
+export const initState: IState = {
+  ...state,
+  qaType: null,
+  msg: null,
+  selected: null,
   listSelected: null,
   fieldState: null,
 }

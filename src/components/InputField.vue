@@ -22,7 +22,8 @@ export default Vue.extend({
       const { num, answer } = state.fieldState
       const [k, v] = answer.split(' / ')
       if (k === this.k && v === this.v) {
-        commit('answerCheck', { num, answer })
+        commit('listFilter', answer)
+        commit('answerCheck', ~~num)
       } else {
         commit('setMsg', '틀렸습니다.')
       }

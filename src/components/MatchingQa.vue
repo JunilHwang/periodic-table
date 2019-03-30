@@ -11,9 +11,6 @@ import PeriodicTable from './PeriodicTable.vue'
 import AnswerList from './AnswerList.vue'
 export default Vue.extend({
   components: { PeriodicTable, AnswerList },
-  created () {
-    this.$store.commit('setMsg', null)
-  },
   methods: {
     select (num: number, answer: string) {
       const {state, commit} = this.$store
